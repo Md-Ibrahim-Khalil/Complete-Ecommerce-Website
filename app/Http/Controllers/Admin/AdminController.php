@@ -7,12 +7,20 @@ use Illuminate\Http\Request;
 use Hash;
 use Auth;
 use Session;
+use App\Admin;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
         return view('admin.admin_dashboard');
+    }
+
+    public function settings()
+    {
+        $adminDetails = Admin::where('email',Auth::guard('admin')->user()->email)->first();
+        // echo "<pre>"; print_r(Auth::guard('admin')->user()); die;
+        return view('admin.admin_settings')->with(compact('adminDetails'));
     }
 
     public function login(Request $request)
