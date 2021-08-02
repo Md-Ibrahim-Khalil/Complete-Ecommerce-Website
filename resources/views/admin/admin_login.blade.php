@@ -25,12 +25,22 @@
       <p class="login-box-msg">Sign in to start your session</p>
 
       @if(Session::has('error_message'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ Session::get('error_message') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          {{ Session::get('error_message') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
       @endif
 
       <form action="{{ url('/admin') }}" method="post">
