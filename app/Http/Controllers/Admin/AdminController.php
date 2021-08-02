@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,8 @@ class AdminController extends Controller
 
     public function login()
     {
+        // echo $password = Hash::make('12345678');
+        // die;
         return view('admin.admin_login');
     }
 }
