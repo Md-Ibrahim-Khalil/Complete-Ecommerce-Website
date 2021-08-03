@@ -35,11 +35,12 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form>
+            <form role="form" method="post" action="{{ url('/admin/update-pwd') }}" name="updatePasswordForm" id="updatePasswordForm">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Admin Name</label>
-                  <input type="text" class="form-control" value="{{ $adminDetails->name }}" placeholder="Enter Admin/Sub Admin Name">
+                  <input type="text" class="form-control" value="{{ $adminDetails->name }}" id="admin_name" placeholder="Enter Admin/Sub Admin Name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Admin Email</label>
@@ -51,15 +52,16 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Current Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Current Password">
+                  <input type="password" class="form-control" id="current_pwd" name="current_pwd" placeholder="Enter Current Password">
+                  <span id="chkCurrentPwd"></span>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">New Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter New Password">
+                  <input type="password" class="form-control" id="new_pwd" name="new_pwd" placeholder="Enter New Password">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirm Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm New Password">
+                  <input type="password" class="form-control" id="confirm_pwd" name="confirm_pwd" placeholder="Confirm New Password">
                 </div>
                 
               </div>

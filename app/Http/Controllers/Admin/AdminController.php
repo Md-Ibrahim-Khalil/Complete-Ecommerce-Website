@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function settings()
     {
-        $adminDetails = Admin::where('email',Auth::guard('admin')->user()->email)->first();
+        $adminDetails = Admin::where('email', Auth::guard('admin')->user()->email)->first();
         // echo "<pre>"; print_r(Auth::guard('admin')->user()); die;
         return view('admin.admin_settings')->with(compact('adminDetails'));
     }
@@ -56,5 +56,21 @@ class AdminController extends Controller
     {
         Auth::guard('admin')->logout();
         return redirect('/admin');
+    }
+
+    public function chkCurrentPasssword(Request $request)
+    {
+        $data = $request->all();
+        // echo "<pre>";
+        // print_r($data);
+        // echo "<pre>";
+        // print_r(Auth::guard('admin')->user()->password);
+        // die;
+
+        if (Hash::check($data['current_pwd'], Auth::guard('admin')->user()->password)) {
+            echo "true";
+        } else {
+            echo "false";
+        }
     }
 }

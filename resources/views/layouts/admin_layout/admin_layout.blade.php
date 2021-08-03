@@ -83,5 +83,7 @@
 <script src="{{ url('js/admin_js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('js/admin_js/pages/dashboard.j') }}s"></script>
+//Custom Admin Js
+<script src="{{ url('js/admin_js/admin_script.js') }}"></script>
 </body>
 </html>
